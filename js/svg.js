@@ -40,9 +40,8 @@ class SvgCircle{
         // Find data attribute of path and parse into list of operations: https://devdocs.io/svg/attribute/d
         const data = $(this.element)
             .attr("d")
-            .trim()
-            .replace(/\s{2,}/gm," ")
             .split(/([a-z][^a-z]+)/gmi)
+            .map(e => e.trim())
             .filter(e => e != "");
          const arc = data.find(e => e.toLowerCase().startsWith("a")); // Find first (and hopefully only) arc operation
          const radius = arc.substr(1).trim().split(/\s+/)[0] - 0; // Chop off first character (operation identifier) and select first value; the x radius
