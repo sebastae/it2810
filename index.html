@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prosjekt 1</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css//svg.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="canvas-container">
+            <canvas id="cvs"></canvas>
+        </div>
+        <div class="svg-container" id="svg_container">
+            <svg id="svg_element" xmlns="http://www.w3.org/2000/svg" width="600" height="400">
+                <rect width="600" height="400" x="0" y="0" fill="#084c61" />
+                <path class="circle circle3" id="circle3" d="
+                        M 300, 200
+                        m 144.9,38.8
+                        a 150 150 0.5236 1 1 0,-77.6" data-rotation-m="1" />
+
+                <path class="circle circle2" id="circle2" d="
+                        M 300,200
+                        m 96.3,25.9
+                        a 100 100 0.5236 1 1 0,-51.8" data-rotation-m="1" />
+
+                <path class="circle circle1" id="circle1" d="
+                        M 300,200
+                        m 48.2,12.9
+                        a 50 50 0.5236 1 1 0,-25.8" data-rotation-m="1"/>   
+            </svg>
+        </div>
+    </div>
+    <script src="./js/canvas.js"></script>
+    <script src="./js/svg.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>

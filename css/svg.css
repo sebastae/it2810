@@ -1,0 +1,20 @@
+.circle{
+    fill: transparent;
+    stroke: #fff;
+    transform-origin: center;
+}
+
+.circle1{
+    stroke: #db504a;
+    stroke-width: 8pt;
+}
+
+.circle2{
+    stroke: #e3b505;
+    stroke-width: 9pt;
+}
+
+.circle3{
+    stroke: #56a3a6;
+    stroke-width: 10pt;
+}
