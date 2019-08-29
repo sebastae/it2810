@@ -57,6 +57,15 @@ $(window).on("mousemove", (e) => {
     MousePos.y = e.originalEvent.y;
 });
 
+$(canvas).click((e) => {
+    let mPos = translateRelativeTo(MousePos, $(canvas));
+    circles.forEach(c => {
+        if(c.isOnStroke(mPos.x, mPos.y)){
+            c.rotationSpeed *= -1;
+        }
+    });
+});
+
 // Define objects
 
 class Circle{
@@ -95,7 +104,9 @@ class Circle{
 circles.push(
     new Circle(prefs.width/2, prefs.height/2, 50, 10, 0.01, Math.PI/6, COLOR.red),
     new Circle(prefs.width/2, prefs.height/2, 100, 12, 0.012, Math.PI/6, COLOR.yellow),
-    new Circle(prefs.width/2, prefs.height/2, 150, 14, 0.014, Math.PI/6, COLOR.lightblue)
+    new Circle(prefs.width/2, prefs.height/2, 150, 14, 0.014, Math.PI/6, COLOR.lightblue),
+    new Circle(prefs.width/2, prefs.height/2, 30, 7, 0.008, Math.PI/6, "#84b082"),
+    new Circle(prefs.width/2, prefs.height/2, 70, 9, 0.009, Math.PI/6, "#beb8eb")
 );
 
 setUp();
