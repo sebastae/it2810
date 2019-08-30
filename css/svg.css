@@ -4,17 +4,33 @@
     transform-origin: center;
 }
 
-.circle1{
+#circle0{
+    stroke: #84b082;
+    stroke-width: 6pt;
+}
+
+#circle1{
     stroke: #db504a;
+    stroke-width: 7pt;
+
+}
+
+#circle2{
+    stroke: #beb8eb;
     stroke-width: 8pt;
 }
 
-.circle2{
+#circle3{
     stroke: #e3b505;
     stroke-width: 9pt;
 }
 
-.circle3{
+#circle4{
     stroke: #56a3a6;
     stroke-width: 10pt;
+}
+
+.triangle-symbol{
+    fill: #333;
+    stroke: none;
 }

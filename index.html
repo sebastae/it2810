@@ -5,44 +5,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Prosjekt 1</title>
+    <title>Gyria</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:800|Raleway:300,500|Roboto+Slab|Coustard&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css//svg.css">
+    <link rel="stylesheet" href="./css/svg.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
+
+    <header>
+        <h1>
+            Gyria
+        </h1>
+        <p>
+            By Sean Erwin
+            <br>
+            <span class="hint">Click the circles</span>
+        </p>
+
+        <blockquote class="artist-description">
+            Sean Erwin is a world renown artìst, known for his incredible looks and limitless intellect. I suppose his art is OK.
+        </blockquote>
+
+    </header>
+
     <div class="container">
-        <div class="canvas-container">
-            <canvas id="cvs"></canvas>
-            <p class="description">
-                HTML5 Canvas
-            </p>
+        <div class="canvas-col">
+            <div class="canvas-container">
+                <canvas id="cvs"></canvas>
+                <p class="description">
+                   <span class="artwork-name">Gyria</span>/HTML5 Canvas
+                </p>
+            </div>
         </div>
-        <div class="svg-container" id="svg_container">
-            <svg id="svg_element" xmlns="http://www.w3.org/2000/svg" width="600" height="400">
-                <rect width="600" height="400" x="0" y="0" fill="#084c61" />
-                <path class="circle circle3" id="circle3" d="
+        <div class="svg-col">
+            <div class="svg-container" id="svg_container">
+                <svg id="svg_element" xmlns="http://www.w3.org/2000/svg" width="600" height="400">
+                    <rect width="600" height="400" x="0" y="0" fill="#084c61" />
+                    <rect width="400" height="400" x="100" y="0" fill="#0c5369" />
+                    <rect width="200" height="400" x="200" y="0" fill="#126078" />
+                    <!-- 0.5236 = PI/6 -->
+                    <path class="circle" id="circle4" d="
                         M 300, 200
                         m 144.9,38.8
                         a 150 150 0.5236 1 1 0,-77.6" data-rotation-m="1" />
 
-                <path class="circle circle2" id="circle2" d="
+                    <path class="circle" id="circle3" d="
                         M 300,200
                         m 96.3,25.9
                         a 100 100 0.5236 1 1 0,-51.8" data-rotation-m="1" />
 
-                <path class="circle circle1" id="circle1" d="
+                    <path class="circle" id="circle2" d="
+                        M 300,200
+                        m 67.61,18.12
+                        a 70 70 0.5236 1 1 0,-36.24" data-rotation-m="1" />
+
+                    <path class="circle" id="circle1" d="
                         M 300,200
                         m 48.2,12.9
-                        a 50 50 0.5236 1 1 0,-25.8" data-rotation-m="1"/>
-                        
+                        a 50 50 0.5236 1 1 0,-25.8" data-rotation-m="1" />
+
+                    <path class="circle" id="circle0" d="
+                        M 300,200
+                        m 28.98, 7.76
+                        a 30 30 0.5236 1 1 0,-18.2" data-rotation-m="1" />
+
+                </svg>
+                <p class="description">
+                        <span class="artwork-name">Gyria</span>/SVG
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="documentation-container">
+        <div class="button">
+            <button id="dropdown_activate">Documentation <span id="dropdown_symbol">
+            <svg class="svg-symbol" xmlns="http://www.w3.org/2000/svg" width="10" height="10">
+                <path class="triangle-symbol" d="M 0,0 L 10,0 L 5,10 L 0,0"/>
             </svg>
-            <p class="description">
-                SVG
-            </p>
+        </span></button>
+        </div>
+        <div class="documentation-content" hidden>
+            <h3>Documentation</h3>
+            <section>
+                <h4>
+                    Flexbox / CSS Grid
+                </h4>
+
+                In this project I have chosen to use flexbox to position  the two images and their respective descriptions. Flexbox was chosen instead of CSS grid for the
+                simple reason that since the images are of fixed size, the layout needed to be more flexible than what CSS grid easily provides.
+
+            </section>
+
+            <section>
+                <h4>
+                    Canvas / SVG
+                </h4>
+                
+                In the canvas the circles are drawn as arcs centered around the center fo the canvas, and are rotated by increasing the start and end angle by the same amount.
+                In the SVG image the circles are drawn by using the &lt;path&gt; element and using the arc operation in the <em>d</em> attribute, using precalculated values for the start and end angles.
+                The formula used is: x<sub>1</sub> = r*cos(&theta;/2), y<sub>1</sub> = r*sin(&theta;/2), x<sub>2</sub> = 0, y<sub>2</sub> = -2y<sub>1</sub>. Where &theta; is the gap in the circle, here chosen to be &pi;/6 radians.
+                <br><br>
+                SVG is also used for drawing the arrow on the dropdown menu. Here it again uses the &lt;path&gt; element, but now with the lineto operation.
+
+                <br><br>
+                The animation is handled by <span class="code-ref">window.requestAnimationFrame()</span>, which increases roation by a small amout every frame.
+                Changing rotation direction is simply multiplying the roatation speed by -1
+
+            </section>
+
+            <section>
+                <h4>jQuery</h4>
+
+                jQuery is scattered about in different parts of this project. It is mostly used for selecting elements 
+                (even tho it is kind of bloated for this, as <span class="code-ref">document.querySelector</span> works just as well, without taking up extra bandwith).
+                It is also used for binding event listeners, as it has a very simple and short syntax for this. 
+                <br>
+                Lastly jQuery runs the dropdown for the documentation, since the <span class="code-ref">.toggle()</span> function is perfect for that kind of functionality. 
+            </section>
+
+            <section>
+                <h4>Cross browser testing</h4>
+
+                Cross browser testing was done very low tech by simply opening the project in different browsers and operating systems. Newer technologies and functionality was
+                also checked in <a href="https://caniuse.com">caniuse.com</a>. To simplify testing on different machines the project was hosted over the local network. This lead to the discovery that the SVG is broken on the android browser.
+            </section>
+
+            <section>
+                <h4>Documentation sources</h4>
+
+                All the documentation used in this project was the official documentation for the different technologies, and accessed and searched using <a href="https://devdocs.io">devdocs.io</a>
+
+            </section>
+
         </div>
     </div>
     <script src="./js/canvas.js"></script>

@@ -1,7 +1,7 @@
 html, body{
     margin: 0;
     padding: 0;
-    background-color: #0b7;
+    background-color: #fffff5;
 }
 
 canvas, svg{
@@ -25,8 +25,94 @@ canvas, svg{
 }
 
 .description{
-    color: white;
-    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #333;
+    font-family: 'Raleway', sans-serif;
+    margin-top: 7px;
+}
+
+header{
+    text-align: center;
+}
+
+header h1{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: #36494E;
+}
+
+header p{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    color: #666;
+}
+
+.hint{
+    color: #204E4A;
+    font-weight: 500;
+    border-top: 1px solid #204E4A;
+    border-radius: 3px;
+}
+
+#dropdown_symbol{
+    font-size: 12pt;
+}
+
+.button button{
+    border-radius: 3px;
+    background-color: #eee;
+    padding: 10px;
+    border: 1px solid #bbb;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
+
+.button button:active{
+    background-color: #dadada;
+}
+
+.svg-symbol{
+    transition: transform .2s ease;
+    box-shadow: none;
+    transform: rotate(0);
+}
+
+button.active .svg-symbol{
+    transform: rotate(180deg);
+}
+
+.documentation-container{
+    width: 82%;
+    margin: auto;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    margin-bottom: 100px;
+}
+
+.documentation-container h3, .documentation-container h4{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.code-ref{
+    font-family: monospace;
+}
+
+.artwork-name{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: #36494E;
+}
+
+.artist-description{
+    color: #999;
+    font-family: 'Roboto Slab', serif;
+}
+
+.artist-description::before,.artist-description::after{
+    display: inline-block;
+    content: '"';
+    font-size: 15pt;
+    font-family: 'Coustard', serif;
+
 }
 
 @media screen and (max-width: 1200px){

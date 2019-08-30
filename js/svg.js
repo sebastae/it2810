@@ -1,8 +1,10 @@
 const svg = document.querySelector("#svg_element");
 
+const circle_0 = svg.querySelector("#circle0");
 const circle_1 = svg.querySelector("#circle1");
 const circle_2 = svg.querySelector("#circle2");
 const circle_3 = svg.querySelector("#circle3");
+const circle_4 = svg.querySelector("#circle4");
 const svg_circles = [];
 
 // Objects 
@@ -69,8 +71,10 @@ function updateSVG(){
 }
 
 svg_circles.push(
-    new SvgCircle(circle_1, 0.01),
-    new SvgCircle(circle_2, 0.012),
-    new SvgCircle(circle_3, 0.014));
+    new SvgCircle(circle_0, 0.01),
+    new SvgCircle(circle_1, 0.012),
+    new SvgCircle(circle_2, 0.014),
+    new SvgCircle(circle_3, 0.016),
+    new SvgCircle(circle_4, 0.018));
 
     

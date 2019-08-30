@@ -2,6 +2,8 @@ const prefs = {
     height: 400,
     width: 600,
     background: "#084c61",
+    background_2: "#0c5369",
+    background_3: "#126078",
     FPS: 30,
 };
 
@@ -10,7 +12,7 @@ const COLOR = {
     yellow: "#e3b505",
     lightblue: "#56a3a6",
     darkblue: "#084c61"
-}
+};
 
 const MousePos =  {
     x: 0,
@@ -34,6 +36,10 @@ function setUp(){
 function background(){
     ctx.fillStyle = prefs.background;
     ctx.fillRect(0,0, canvas.width, canvas.height);
+    ctx.fillStyle = prefs.background_2;
+    ctx.fillRect(canvas.width/2 - 200, 0, 400, canvas.height);
+    ctx.fillStyle = prefs.background_3;
+    ctx.fillRect(canvas.width/2 - 100, 0, 200 , canvas.height);
 }
 
 function translateRelativeTo(pos, element){
@@ -92,8 +98,8 @@ class Circle{
     }
 
     isOnStroke(x, y){
-        const withinOuter = Math.pow(this.x - x, 2) + Math.pow(this.y - y, 2) < Math.pow(this.r + this.w/2, 2);
-        const outsideInner = Math.pow(this.x - x, 2) + Math.pow(this.y - y, 2) > Math.pow(this.r - this.w/2, 2);
+        const withinOuter = Math.pow(this.x - x, 2) + Math.pow(this.y - y, 2) <= Math.pow(this.r + this.w/2, 2); // Stroke grows from center, so check half from each side
+        const outsideInner = Math.pow(this.x - x, 2) + Math.pow(this.y - y, 2) >= Math.pow(this.r - this.w/2, 2);
         return withinOuter && outsideInner;
     }
 
@@ -102,11 +108,10 @@ class Circle{
 // Create instances
 
 circles.push(
-    new Circle(prefs.width/2, prefs.height/2, 50, 10, 0.01, Math.PI/6, COLOR.red),
-    new Circle(prefs.width/2, prefs.height/2, 100, 12, 0.012, Math.PI/6, COLOR.yellow),
-    new Circle(prefs.width/2, prefs.height/2, 150, 14, 0.014, Math.PI/6, COLOR.lightblue),
-    new Circle(prefs.width/2, prefs.height/2, 30, 7, 0.008, Math.PI/6, "#84b082"),
-    new Circle(prefs.width/2, prefs.height/2, 70, 9, 0.009, Math.PI/6, "#beb8eb")
-);
+    new Circle(prefs.width/2, prefs.height/2, 30, 7, 0.01, Math.PI/6, "#84b082"),
+    new Circle(prefs.width/2, prefs.height/2, 50, 9, 0.012, Math.PI/6, COLOR.red),
+    new Circle(prefs.width/2, prefs.height/2, 70, 11, 0.014, Math.PI/6, "#beb8eb"),
+    new Circle(prefs.width/2, prefs.height/2, 100, 13, 0.016, Math.PI/6, COLOR.yellow),
+    new Circle(prefs.width/2, prefs.height/2, 150, 15, 0.018, Math.PI/6, COLOR.lightblue));
 
 setUp();
